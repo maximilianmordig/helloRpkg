@@ -1,18 +1,23 @@
-Package: helloRpkg
 Type: Package
+Package: helloRpkg
 Title: What the Package Does (Title Case)
-Version: 0.1.0
+Version: 0.1.1
+Authors@R: 
+    c(person(given = "Adrian",
+             family = "Waddell",
+             role = c("aut", "cre"),
+             email = "adrian.waddell@roche.com"),
+      person(given = "Max",
+             family = "Boruvka",
+             role = "ctb",
+             email = "audrey.boruvka@roche.com"))
 Author: test
-Authors@R: c(
-  person("Adrian", "Waddell", email = "adrian.waddell@roche.com", role = c("aut", "cre")),
-  person("Max", "Boruvka", email = "audrey.boruvka@roche.com", role = "ctb")
-  )
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: More about what it does (maybe more than one line) Use four
+    spaces when indenting paragraphs within the Description.
 License: GPL-2
+Suggests: 
+    testthat
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-Suggests: 
-    testthat
