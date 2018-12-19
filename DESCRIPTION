@@ -1,7 +1,7 @@
 Type: Package
 Package: helloRpkg
 Title: What the Package Does (Title Case)
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: 
     c(person(given = "Adrian",
              family = "Waddell",
