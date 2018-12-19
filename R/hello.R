@@ -31,5 +31,4 @@ hello <- function(name) {
   print(paste("Hello", name))
 }
 
-error(
-f
+print(paste("Hello"))
