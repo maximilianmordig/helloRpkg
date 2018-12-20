@@ -28,7 +28,7 @@
 #' hello("max")
 #'
 hello <- function(name) {
-  print(paste("HelloR", name))
+  print(paste("HelloR2", name))
 }
 
 print(paste("Hello", "te"))
