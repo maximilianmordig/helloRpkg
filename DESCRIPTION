@@ -1,7 +1,7 @@
 Type: Package
 Package: helloRpkg
 Title: What the Package Does (Title Case)
-Version: 0.1.5
+Version: 0.1.6
 Authors@R: 
     c(person(given = "Adrian",
              family = "Waddell",
@@ -13,7 +13,8 @@ Authors@R:
              email = "audrey.boruvka@roche.com"))
 Author: test
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: Use four spaces when indenting paragraphs within the Description.  This is a new sentence.
+Description: Use four spaces when indenting paragraphs within the
+    Description.  This is a new sentence.
 License: GPL-2
 Suggests: 
     testthat
