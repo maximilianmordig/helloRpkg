@@ -30,3 +30,5 @@
 hello <- function(name) {
   print(paste("Hello", name))
 }
+
+print(paste("Hello"))
