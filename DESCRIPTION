@@ -14,7 +14,7 @@ Authors@R:
 Author: test
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Use four spaces when indenting paragraphs within the
-    Description.  This is a new sentence a.
+    Description.  This is a new sentence.
 License: GPL-2
 Suggests: 
     testthat
