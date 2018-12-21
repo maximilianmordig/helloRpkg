@@ -3,3 +3,4 @@
 export(bar)
 export(foo)
 export(hello)
+export(zzz)
