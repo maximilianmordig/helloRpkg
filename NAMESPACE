@@ -2,3 +2,4 @@
 
 export(foo)
 export(hello)
+export(zzz)
