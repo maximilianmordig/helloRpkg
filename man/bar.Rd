@@ -14,6 +14,6 @@ a bar function
 }
 \examples{
 
-bar("abcd", "asasdas")
+bar("abcd")
 
 }

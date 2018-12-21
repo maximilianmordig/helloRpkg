@@ -14,7 +14,7 @@
 #'
 #' @examples
 #'
-#' bar("abcd", "asasdas")
+#' bar("abcd")
 #'
 bar <- function(x) {
   print(paste("bar:", x))
