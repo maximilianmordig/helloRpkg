@@ -3,5 +3,6 @@
 export(bar)
 export(foo)
 export(hello)
+export(iii)
 export(uuu)
 export(zzz)
