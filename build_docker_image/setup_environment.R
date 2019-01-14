@@ -5,3 +5,4 @@
 #install.packages("automation.utils_0.1.0.tar.gz", repos = NULL, type="source")install.packages("helloRpkg_1.0.0.tar.gz", repos = NULL, type="source")
 install.packages("helloRpkg_2.0.0.tar.gz", repos = NULL, type="source")
 install.packages("helloRpkg_3.0.0.tar.gz", repos = NULL, type="source")
+install.packages("helloRpkg_4.0.0.tar.gz", repos = NULL, type="source")
