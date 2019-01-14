@@ -6,3 +6,4 @@
 install.packages("helloRpkg_2.0.0.tar.gz", repos = NULL, type="source")
 install.packages("helloRpkg_3.0.0.tar.gz", repos = NULL, type="source")
 install.packages("helloRpkg_4.0.0.tar.gz", repos = NULL, type="source")
+install.packages("helloRpkg_5.0.0.tar.gz", repos = NULL, type="source")
