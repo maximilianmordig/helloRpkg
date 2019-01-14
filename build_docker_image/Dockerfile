@@ -2,16 +2,13 @@ FROM rstudio_devel:v1
 
 # This is a Dockerfile that adds R packages on top of a RStudio-based image, it supposes that the files to install are in this directory and copies them to then install them
 
-# specify which R packages to install with install.packages: can be files copied over as well as urls like CRAN
-ARG rpackages
-
 WORKDIR /installation
 COPY . .
 RUN ls -al
-RUN chmod +x setup_environment.R && ./setup_environment.R ${rpackages}
+RUN chmod +x setup_environment.R && "./setup_environment.R"
 
-# WORKDIR /home/rstudio
 
+# Note: passing a build argument with spaces does not work well with docker (it is a bug), so we do not pass the arguments to setup_environment.R from here, but rather put them directly into setup_environment.R
 #docker build -t rstudio_example:v1 .
 # user: rstudio, password: testuser
 #docker run -p 8787:8787 -e PASSWORD=testuser -v "$HOME"/localrstudio:/home/rstudio -d --rm --name rstudio_development rstudio_example:v1
