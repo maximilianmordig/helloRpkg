@@ -1,4 +1,6 @@
-FROM rstudio_devel:v1
+ARG BASE_IMAGE=rstudio_devel:v1
+FROM ${BASE_IMAGE}
+# Note: BASE_IMAGE not defined below here, need to put ARG again
 
 # This is a Dockerfile that adds R packages on top of a RStudio-based image, it supposes that the files to install are in this directory and copies them to then install them
 
