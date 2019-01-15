@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=rstudio_devel:v1
+ARG BASE_IMAGE="3.121.104.44:10018/jenkinspipeline/rstudio_devel:v1"
 FROM ${BASE_IMAGE}
 # Note: BASE_IMAGE not defined below here, need to put ARG again
 
