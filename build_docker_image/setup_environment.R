@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
 
 # used to install packages mainly
-
-#install.packages("automation.utils_0.1.0.tar.gz", repos = NULL, type="source")
+# use withCallingHandlers to throw an error if package not found
+withCallingHandlers(install.packages("helloRpkg_17.0.0.tar.gz", repos = NULL, type="source"), warning = function(w) stop(w))
