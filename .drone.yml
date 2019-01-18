@@ -6,3 +6,5 @@ steps:
   image: ubuntu
   commands:
   - echo "Hello world!2"
+  - pwd
+  - ls
