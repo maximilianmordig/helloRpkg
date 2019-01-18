@@ -3,14 +3,14 @@ Package: helloRpkg
 Title: What the Package Does (Title Case)
 Version: 42.0.0
 Authors@R: 
-    c(person(given = "Adrian",
-             family = "Waddell",
+    c(person(given = "Al",
+             family = "Name",
              role = c("aut", "cre"),
-             email = "adrian.waddell@roche.com"),
-      person(given = "Max",
-             family = "Boruvka",
+             email = "test@test.com"),
+      person(given = "afdsfds",
+             family = "afdfds",
              role = "ctb",
-             email = "audrey.boruvka@roche.com"))
+             email = "afds.adsffdsa@test.com"))
 Author: test
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Use four spaces when indenting paragraphs within the
