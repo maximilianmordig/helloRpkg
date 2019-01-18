@@ -5,4 +5,4 @@ steps:
 - name: teststep
   image: ubuntu
   commands:
-  - echo "Hello world!"
+  - echo "Hello world!2"
