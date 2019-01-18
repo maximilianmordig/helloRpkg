@@ -1,0 +1,8 @@
+kind: pipeline
+name: default
+
+steps:
+- name: teststep
+  image: ubuntu
+  commands:
+  - echo "Hello world!"
