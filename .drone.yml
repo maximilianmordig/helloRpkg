@@ -1,11 +1,28 @@
+# Drone starts with an empty directory
+#todo: put git clone into plugin
+
 kind: pipeline
 name: default
 
+clone:
+  disable: true
+  
 steps:
+- name: clonerepo
+# we don't take drone/git because it only has five parameters and we need a more customized git setup
+  image: plugins/git
+  commands:
+  #todo: find a better way to not clone the whole repo, but only the branch and master
+  - git clone "$DRONE_GIT_HTTP_URL" sourcecode # we pull everything because we also need the master
+  - cd sourcecode
+  - git checkout "$DRONE_COMMIT_SHA" -b "${DRONE_COMMIT_BRANCH}-pr${DRONE_PULL_REQUEST}"
+  - git status
+  - git branch -a
+
+
 - name: teststep
   image: ubuntu
   commands:
   - echo "Hello world!2"
   - pwd
   - ls
-  - sleep 2
