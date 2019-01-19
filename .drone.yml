@@ -1,7 +1,22 @@
+# Drone starts with an empty repository
+
 kind: pipeline
 name: default
 
+clone:
+  disable: true
+  
 steps:
+- name: gittest
+# we don't take drone/git because it only has five parameters and we need a more customized git setup
+  image: plugins/git
+  commands:
+  - git checkout --track origin/master # checkout master with attached head (--track) to compare R versions
+  - git status
+  - git checkout "$DRONE_COMMIT
+  - git status
+  - git branch -a
+
 - name: teststep
   image: ubuntu
   commands:
@@ -9,8 +24,3 @@ steps:
   - pwd
   - ls
   
-- name: gittest
-  image: plugins/git
-  commands:
-  - git branch -a
-  - sleep 200
