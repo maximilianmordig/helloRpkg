@@ -8,3 +8,4 @@ steps:
   - echo "Hello world!2"
   - pwd
   - ls
+  - sleep 2
