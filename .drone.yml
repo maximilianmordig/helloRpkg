@@ -8,3 +8,9 @@ steps:
   - echo "Hello world!2"
   - pwd
   - ls
+  
+- name: gittest
+  image: plugins/git
+  commands:
+  - git branch -a
+  - sleep 100
