@@ -11,6 +11,7 @@ steps:
 # we don't take drone/git because it only has five parameters and we need a more customized git setup
   image: plugins/git
   commands:
+  - git clone "$DRONE_GIT_HTTP_URL"
   - git checkout --track origin/master # checkout master with attached head (--track) to compare R versions
   - git status
   - git checkout "$DRONE_COMMIT
