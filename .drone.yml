@@ -32,4 +32,4 @@ steps:
     TESTVALUE:
       from_secret: test_value
   commands:
-  - echo "Hello: $${TESTVALUE}"
+  - echo "HHH"
