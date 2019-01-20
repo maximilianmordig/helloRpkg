@@ -20,7 +20,7 @@ steps:
   - git branch -a
 
 - name: checkversion
-  image: 3.121.104.44:10018/jenkinspipeline/rstudio_devel
+  image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
   entrypoint: [bash]
   commands:
   - echo "Hello world"
