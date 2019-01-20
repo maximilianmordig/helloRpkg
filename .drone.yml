@@ -10,6 +10,43 @@ clone:
 # to substitue values, use either $${TEST_VALUE} or $TEST_VALUE
 
 steps:
+- name: clonerepo
+# we don't take drone/git because it only has five parameters and we need a more customized git setup
+  image: plugins/git
+  commands:
+  #todo: find a better way to not clone the whole repo, but only the branch and master
+  - git clone "$DRONE_GIT_HTTP_URL" sourcecode # we pull everything because we also need the master
+  - cd sourcecode
+  - git checkout "$DRONE_COMMIT_SHA" -b "${DRONE_COMMIT_BRANCH}-pr${DRONE_PULL_REQUEST}"
+  - git status
+  - git branch -a
+
+- name: pullimages
+  image: docker
+  environment:
+    USERNAME:
+      from_secret: docker_username
+    PASSWORD:
+      from_secret: docker_password
+  commands:
+  - echo "$USERNAME:$PASSWORD"
+  - docker login -u "$USERNAME" -p "$PASSWORD" registry.bioclinr.com:10021/
+  - docker pull registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
+  
+- name: checkversion
+  image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
+  entrypoint: [bash]
+  commands:
+  - echo "Hello world"
+
+
+- name: teststep
+  image: ubuntu
+  commands:
+  - echo "Hello world!2"
+  - pwd
+  - ls
+
 - name: build
   image: alpine
   environment:
@@ -34,39 +71,3 @@ steps:
   commands:
   - echo "HHH $${TESTVALUE}"
   
-- name: clonerepo
-# we don't take drone/git because it only has five parameters and we need a more customized git setup
-  image: plugins/git
-  commands:
-  #todo: find a better way to not clone the whole repo, but only the branch and master
-  - git clone "$DRONE_GIT_HTTP_URL" sourcecode # we pull everything because we also need the master
-  - cd sourcecode
-  - git checkout "$DRONE_COMMIT_SHA" -b "${DRONE_COMMIT_BRANCH}-pr${DRONE_PULL_REQUEST}"
-  - git status
-  - git branch -a
-
-- name: pullimages
-  image: docker
-  environment:
-    USERNAME:
-      from_secret: docker_username
-    PASSWORD:
-      from_secret: docker_password
-  commands:
-  - echo "$USERNAME:$PASSWORD"
-  - docker login -u USERNAME -p PASSWORD registry.bioclinr.com:10021/
-  - docker pull registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
-  
-- name: checkversion
-  image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
-  entrypoint: [bash]
-  commands:
-  - echo "Hello world"
-
-
-- name: teststep
-  image: ubuntu
-  commands:
-  - echo "Hello world!2"
-  - pwd
-  - ls
