@@ -1,3 +1,6 @@
+# Drone starts with an empty directory
+#todo: put git clone into plugin
+
 kind: pipeline
 name: default
 
@@ -15,5 +18,4 @@ steps:
     TESTVALUE:
       from_secret: test_value
   commands:
-  - echo "Hello ${TEST_VALUE}⅛
-  
+  - echo "Hello ${TEST_VALUE}"
