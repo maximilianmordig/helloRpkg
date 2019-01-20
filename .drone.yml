@@ -19,6 +19,12 @@ steps:
   - git status
   - git branch -a
 
+- name: checkversion
+  image: 3.121.104.44:10018/jenkinspipeline/rstudio_devel
+  entrypoint: bash
+  commands:
+  - echo "Hello world"
+
 
 - name: teststep
   image: ubuntu
