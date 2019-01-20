@@ -20,4 +20,4 @@ steps:
     TESTVALUE:
       from_secret: test_value
   commands:
-  - echo "Hello $${TEST_VALUE}"
+  - echo "Hello $${TESTVALUE}"
