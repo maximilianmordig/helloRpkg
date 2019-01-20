@@ -21,3 +21,15 @@ steps:
       from_secret: test_value
   commands:
   - echo "Hello $${TESTVALUE}"
+  
+- name: ubuntustep
+  image: ubuntu
+  environment:
+    USERNAME:
+      from_secret: docker_username
+    PASSWORD:
+      from_secret: docker_password
+    TESTVALUE:
+      from_secret: test_value
+  commands:
+  - echo "Hello: $${TESTVALUE}"
