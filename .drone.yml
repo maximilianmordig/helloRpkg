@@ -28,6 +28,8 @@ steps:
       from_secret: docker_username
     PASSWORD:
       from_secret: docker_password
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
   commands:
   - echo "$USERNAME:$PASSWORD"
   - docker login -u "$USERNAME" -p "$PASSWORD" registry.bioclinr.com:10021/
