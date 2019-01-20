@@ -8,6 +8,18 @@ clone:
   disable: true
   
 steps:
+- name: ubuntustep
+  image: ubuntu
+  environment:
+    USERNAME:
+      from_secret: docker_username
+    PASSWORD:
+      from_secret: docker_password
+    TEST_VALUE:
+      from_secret: test_value
+  commands:
+  - echo "Hello: ${TEST_VALUE}"
+  
 - name: clonerepo
 # we don't take drone/git because it only has five parameters and we need a more customized git setup
   image: plugins/git
