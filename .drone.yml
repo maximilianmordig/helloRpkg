@@ -21,15 +21,15 @@ steps:
 
 - name: pullimages
   image: docker
+  environment:
+    USERNAME:
+      from_secret: docker_username
+    PASSWORD:
+      from_secret: docker_password
   commands:
   - echo "${USERNAME}:${PASSWORD}"
   - docker login -u USERNAME -p PASSWORD registry.bioclinr.com:10021/
   - docker pull registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
-  - environment:
-      USERNAME:
-        from_secret: docker_username
-      PASSWORD:
-        from_secret: docker_password
   
 - name: checkversion
   image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
