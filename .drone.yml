@@ -1,47 +1,27 @@
-# Drone starts with an empty directory
-#todo: put git clone into plugin
-
 kind: pipeline
 name: default
 
 clone:
   disable: true
   
-# to substitue values, use either $${TEST_VALUE} or $TEST_VALUE
 
 steps:
-- name: clonerepo
-# we don't take drone/git because it only has five parameters and we need a more customized git setup
-  image: plugins/git
-  commands:
-  #todo: find a better way to not clone the whole repo, but only the branch and master
-  - git clone "$DRONE_GIT_HTTP_URL" sourcecode # we pull everything because we also need the master
-  - cd sourcecode
-  - git checkout "$DRONE_COMMIT_SHA" -b "${DRONE_COMMIT_BRANCH}-pr${DRONE_PULL_REQUEST}"
-  - git status
-  - git branch -a
-
 - name: pullimages
   image: docker
   environment:
-    USERNAME:
-      from_secret: docker_username
+    USERNAME: admin
     PASSWORD:
       from_secret: docker_password
+    REGISTRY_URL: "registry.bioclinr.com:10021/"
+    IMAGE_NAME: "jenkinspipeline/rstudio_devel:v1"
   volumes:
   - name: dockerSocket
     path: /var/run/docker.sock
   commands:
   - echo "$USERNAME:$PASSWORD"
-  - docker login -u "$USERNAME" -p "$PASSWORD" registry.bioclinr.com:10021/
-  - docker pull registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
+  - docker login -u "$USERNAME" -p "$PASSWORD" "$REGISTRY_URL"
+  - docker pull "${REGISTRY_URL}${IMAGE_NAME}"
   
-- name: checkversion
-  image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
-  entrypoint: [bash]
-  commands:
-  - echo "Hello world"
-
 volumes:
 - name: dockerSocket
   host:
