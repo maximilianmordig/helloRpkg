@@ -11,3 +11,4 @@ steps:
   entrypoint: [sh]
   commands:
   - echo "SHell: $SHELL"
+  
