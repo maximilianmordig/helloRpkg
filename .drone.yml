@@ -17,9 +17,3 @@ steps:
   entrypoint: [bash]
   commands:
   - echo "Hello world"
-  
-- name: checkversion
-  image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
-  entrypoint: [R]
-  commands:
-  - print("Hello from R")
