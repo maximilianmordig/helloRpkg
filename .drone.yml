@@ -3,11 +3,10 @@ name: default
 
 clone:
   disable: true
-  
 
 steps:
-- name: ubuntustep
-  image: ubuntu
-  entrypoint: [sh]
+- name: checkversion
+  image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
+  entrypoint: [R]
   commands:
-  - echo "SHell: SHELL"
+  - "print('Hello from R')"
