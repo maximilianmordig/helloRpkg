@@ -10,5 +10,4 @@ steps:
   image: ubuntu
   entrypoint: [sh]
   commands:
-  - echo "SHell: $SHELL"
-  
+  - echo "SHell: SHELL"
