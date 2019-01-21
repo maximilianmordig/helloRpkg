@@ -3,9 +3,7 @@ name: default
 
 clone:
   disable: true
-
-
-
+  
 
 steps:
 - name: pullimages
@@ -16,15 +14,7 @@ steps:
       from_secret: docker_password
     REGISTRY_URL: "registry.bioclinr.com:10021/"
     IMAGE_NAME: "jenkinspipeline/rstudio_devel:v1"
-  volumes:
-  - name: dockerSocket
-    path: /var/run/docker.sock
   commands:
   - echo "$USERNAME:$PASSWORD"
   - docker login -u "$USERNAME" -p "$PASSWORD" "$REGISTRY_URL"
-  - docker pull "${REGISTRY_URL}${IMAGE_NAME}"
-  
-volumes:
-- name: dockerSocket
-  host:
-    path: /var/run/docker.sock
+  - cat $HOME/.docker/config.json
