@@ -6,22 +6,10 @@ clone:
   
 
 steps:
-- name: pullimages
-  image: docker
-  environment:
-    USERNAME: admin
-    PASSWORD:
-      from_secret: docker_password
-    REGISTRY_URL: "registry.bioclinr.com:10021/"
-    IMAGE_NAME: "jenkinspipeline/rstudio_devel:v1"
-  commands:
-  - echo "$USERNAME:$PASSWORD"
-  - docker login -u "$USERNAME" -p "$PASSWORD" "$REGISTRY_URL"
-  - cat $HOME/.docker/config.json
+  
     
 - name: checkversion
   image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
   entrypoint: [bash]
   commands:
   - echo "Hello world"
-  
