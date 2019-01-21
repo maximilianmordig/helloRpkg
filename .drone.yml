@@ -6,10 +6,20 @@ clone:
   
 
 steps:
-  
+- name: ubuntustep
+  image: ubuntu
+  entrypoint: [sh]
+  commands:
+  - echo "SHell: $SHELL"
     
 - name: checkversion
   image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
   entrypoint: [bash]
   commands:
   - echo "Hello world"
+  
+- name: checkversion
+  image: registry.bioclinr.com:10021/jenkinspipeline/rstudio_devel:v1
+  entrypoint: [R]
+  commands:
+  - print("Hello from R")
